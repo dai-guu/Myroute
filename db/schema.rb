@@ -10,13 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_26_131544) do
+ActiveRecord::Schema.define(version: 2022_01_28_151759) do
+
+  create_table "maps", force: :cascade do |t|
+    t.string "title"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_images", force: :cascade do |t|
+    t.text "shop_name"
+    t.string "image_id"
+    t.text "caption"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "profile_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

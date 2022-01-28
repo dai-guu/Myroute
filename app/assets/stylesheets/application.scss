@@ -14,6 +14,27 @@
  *= require_self
  */
 
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+.navbar-brand {
+   position: absolute;
+        width: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+   //  left: 0;
+   //  top: 0;
+   //  justify-content-center
+   //  margin: auto;
+}
+
+.nav-item{
+   margin-right: auto;
+}
+
+
 .container{
    text-align: center;
  }
@@ -29,3 +50,9 @@
    border-radius: 3px;
    border: 2px solid #ddd;
  }
+
+//  @media (min-width: 768px) {
+//     .navbar-brand-center {
+//        margin-left: 0 !important;
+//     }
+// }
