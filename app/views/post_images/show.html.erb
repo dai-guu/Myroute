@@ -1,10 +1,68 @@
-<div>
-  <%= attachment_image_tag @post_image, :image %>
-  <p>ショップ名：<%= @post_image.shop_name %></p>
-  <p>説明：<%= @post_image.caption %></p>
-  <p>ユーザーネーム：<%= @post_image.user.name %></p>
-  <p>投稿日時：<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @post_image.user == current_user %>
-    <%= link_to "削除", post_image_path(@post_image), method: :delete %>
-  <% end %>
+<div class="col-md-10 col-md-offset-1 mx-auto postShow-wrap">
+  <div class="row post-wrap">
+          <div class="col-md-8">
+            <div class="card-left">
+
+                   <div class="img-container">
+                      <%= attachment_image_tag @post_image, :image, format: 'jpeg', fallback: "no_image.jpg", class: 'object-contain' %>
+                        <div class="btn-toolbar">
+                          <div class="btn-group">
+                            <%#= render "detail",post_image: @post_image %>
+                            <%#= render "star",post_image: @post_image %>
+                          </div>
+                        </div>
+                    </div>
+
+                   <div>
+                     <p>タイトル：<%= @post_image.shop_name %></p>
+                     <p>説明：<%= @post_image.caption %></p>
+                     <p>投稿日時：<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
+                       <% if @post_image.user == current_user %>
+                         <%= link_to "編集", edit_post_image_path(@post_image) %>
+                         <%= link_to "削除", post_image_path(@post_image), method: :delete %>
+                     <% end %>
+                    </div>
+              </div>
+             </div>
+<div class="col-md-4">
+<div id='map'></div>
+<style>
+#map {
+  height: 300px;
+  width: 400px;
+}
+</style>
+ <% if @post_image.latitude.present? && @post_image.longitude.present? %>
+ <script>
+  let map
+
+  function initMap(){
+    geocoder = new google.maps.Geocoder()
+    var test ={lat: <%= @post_image.latitude %>, lng: <%= @post_image.longitude %>};
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: test,
+      zoom: 15,
+
+      mapTypeControl: false,
+      streetViewControl: false
+    });
+
+    var contentString = '住所：<%= @post_image.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    marker = new google.maps.Marker({
+      position:  test,
+      map: map,
+      title: contentString
+    });
+  }
+</script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key='GOOGLE_MAP_API_KEY'&callback=initMap" async defer></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"></script>
+</div>
+<% end %>
+</div>
 </div>

@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   get 'maps', to: "maps#index"
   get '/map_request', to: 'maps#map', as: 'map_request'
-  resources :post_images, only: [:new, :create, :index, :show, :destroy]
+  resources :post_images
 end

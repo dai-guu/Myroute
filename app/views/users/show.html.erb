@@ -1,11 +1,11 @@
+<div class = "container">
 <h1>Welcome!</h1>
 <% if logged_in? %>
-  <%= link_to 'カフェ一覧', post_images_path %>
+  <%= link_to '投稿一覧', post_images_path %>
 <% else %>
   <%= render 'Login' %>
 <% end %>
 <p>You are logged in as "<strong><%= current_user.email %></strong>".</p>
-<%= link_to "Logout", logout_path, method: :delete %>
 
 
 <div>
@@ -17,15 +17,8 @@
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
   <% end %>
 
-<% @post_images.each do |post_image| %>
-<div>
-  <%= link_to post_image_path(post_image.id) do %>
-    <%= attachment_image_tag post_image, :image %>
-  <% end %>
-  <p>投稿ユーザー画像：<%= attachment_image_tag post_image.user, :profile_image, fallback: "no_image.jpg", size:"60x60" %></p>
-  <p>ショップ名：<%= post_image.shop_name %></p>
-  <p>説明：<%= post_image.caption %></p>
-  <p>ユーザーネーム：<%= post_image.user.name %></p>
+  <%= render "post_images/lists" %>
+
+
+ <%= paginate @post_images %>
 </div>
-<% end %>
-<%= paginate @post_images %>
