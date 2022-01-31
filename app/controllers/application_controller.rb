@@ -13,12 +13,11 @@ class ApplicationController < ActionController::Base
   #   end
   # end
 
-
-
   private
-    def logged_in_user
-      unless logged_in?
-        redirect_to login_url
-      end
+
+  def logged_in_user
+    unless logged_in?
+      redirect_to login_url
     end
+  end
 end

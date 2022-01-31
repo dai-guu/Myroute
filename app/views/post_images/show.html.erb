@@ -25,46 +25,43 @@
 <div class="col-md-4">
 <div id='map'></div>
 <style>
-#map {
-  height: 300px;
-  width: 400px;
-}
-</style>
- <% if @post_image.latitude.present? && @post_image.longitude.present? %>
- <script>
-  let map
-
-  function initMap(){
-    geocoder = new google.maps.Geocoder()
-    var test ={lat: <%= @post_image.latitude %>, lng: <%= @post_image.longitude %>};
-
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: test,
-      zoom: 15,
-
-      mapTypeControl: false,
-      streetViewControl: false
-    });
-
-    var contentString = '住所：<%= @post_image.address %>';
-    var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
-
-    marker = new google.maps.Marker({
-      position:  test,
-      map: map,
-      title: contentString
-    });
+  #map {
+    height: 300px;
+    width: 400px;
   }
-</script>
-<!--<script src="https://maps.googleapis.com/maps/api/js?key='GOOGLE_MAP_API_KEY'&callback=initMap" async defer></script>-->
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"></script>
+ </style>
+   <% if @post_image.latitude.present? && @post_image.longitude.present? %>
+         <script>
+            let map
 
-<% end %>
+            function initMap(){
+            geocoder = new google.maps.Geocoder()
+            var test ={lat: <%= @post_image.latitude %>, lng: <%= @post_image.longitude %>};
 
-  <br>
-  <br>
+            map = new google.maps.Map(document.getElementById('map'), {
+            center: test,
+            zoom: 15,
+            mapTypeControl: false,
+            streetViewControl: false
+            });
+
+            var contentString = '住所：<%= @post_image.address %>';
+            var infowindow = new google.maps.InfoWindow({
+            content: contentString
+            });
+
+            marker = new google.maps.Marker({
+            position:  test,
+            map: map,
+            title: contentString
+            });
+          }
+       </script>
+       <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"></script>
+    <% end %> <!--(br:33 if)-->
+
+       <br>
+       <br>
 
   <div class="card-right-comment">
         <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
@@ -84,8 +81,8 @@
             </div>
            <% end %>
          <% end %>
-    </div>
+      </div>
+   </div> <!--(br:25 col)-->
+   
  </div>
-
-</div>
 </div>

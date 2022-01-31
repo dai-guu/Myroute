@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   root 'homes#top'
   get 'about', to: "homes#about"
   resource :user, only: [:new, :create, :show, :edit, :update]
@@ -19,7 +17,6 @@ Rails.application.routes.draw do
   get 'maps', to: "maps#index"
   get '/map_request', to: 'maps#map', as: 'map_request'
   resources :post_images do
-  resources :post_comments, only: [:create, :destroy]
+    resources :post_comments, only: [:create, :destroy]
   end
-
- end
+end

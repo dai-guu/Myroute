@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   # before_action :user_state, only: [:create]
-
-
+  
   def new
   end
 

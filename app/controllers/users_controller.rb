@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-
-  before_action :logged_in_user, only:[:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -42,8 +41,8 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-
   private
+
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :name, :profile_image)
   end

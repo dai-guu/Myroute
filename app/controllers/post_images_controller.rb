@@ -1,5 +1,5 @@
 class PostImagesController < ApplicationController
-  before_action :logged_in_user, only:[:edit, :update, :destroy]
+  before_action :logged_in_user, only: [:edit, :update, :destroy]
   def new
     @post_image = PostImage.new
   end
@@ -49,5 +49,4 @@ class PostImagesController < ApplicationController
   def post_image_params
     params.require(:post_image).permit(:shop_name, :image, :caption, :address)
   end
-
 end
