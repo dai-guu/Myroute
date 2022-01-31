@@ -1,24 +1,35 @@
-# README
+# myroute
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## サイト概要
+* ユーザー同士でおすすめの喫茶店の情報を投稿し合い、お店の情報を共有できるアプリケーション。
+* 地図機能をもとにひと目で行きたい喫茶店の場所がわかる。
+* 投稿した情報をマイページで管理することもできる。
+### サイトテーマ
+* 新しくリラックスできる場所を見つけるためのWebサイト
 
-* Ruby version
+### テーマを選んだ理由
+* 外でお仕事をしている時や外出中にふとカフェに寄りたいなと思ったときに活用できるアプリがあれば良いと思い制作しました。
+* 普段皆さんが利用しているカフェや喫茶店はどこか気になる方がいらっしゃると思います。
+* そういった気になることや行きつけのお店を知りたい方に情報を提供・共有できるサービスを想定しました。
+### ターゲットユーザ
+* 新しく行きつけにしたいお店やカフェを探しているユーザー。
+* レビューを参考にお店を探している方。
+### 主な利用シーン
+* 外出中に少しお茶をしたいとき。
+* カフェでのお仕事スペースを探してるとき。
+## 設計書
+* ER図
+https://drive.google.com/file/d/1JrxUmlzLwla_8zBegePCNRGGM5K1eurj/view?usp=sharing
 
-* System dependencies
 
-* Configuration
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+### 写真素材
+- Unsplash URL https://unsplash.com/
