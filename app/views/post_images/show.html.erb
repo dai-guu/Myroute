@@ -7,8 +7,6 @@
                       <%= attachment_image_tag @post_image, :image, format: 'jpeg', fallback: "no_image.jpg", class: 'object-contain' %>
                         <div class="btn-toolbar">
                           <div class="btn-group">
-                            <%#= render "detail",post_image: @post_image %>
-                            <%#= render "star",post_image: @post_image %>
                           </div>
                         </div>
                     </div>
@@ -62,7 +60,32 @@
 </script>
 <!--<script src="https://maps.googleapis.com/maps/api/js?key='GOOGLE_MAP_API_KEY'&callback=initMap" async defer></script>-->
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"></script>
-</div>
+
 <% end %>
+
+  <br>
+  <br>
+
+  <div class="card-right-comment">
+        <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
+        <%= f.text_field :comment, rows:'5',placeholder: "コメントをここに" %>
+        <%= f.submit "送信する" %>
+       <% end %>
+
+
+      <p>コメント件数：<%= @post_image.post_comments.count %></p>
+        <% @post_image.post_comments.each do |post_comment| %>
+         <%= attachment_image_tag post_comment.user, :profile_image, fallback: "no_image.jpg", class:"comment-image", size: "40x40", style: "border-radius:50%;" %>
+           <%= post_comment.user.name %>
+           <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+          <% if post_comment.user == current_user %>
+            <div>
+               <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
+            </div>
+           <% end %>
+         <% end %>
+    </div>
+ </div>
+
 </div>
 </div>

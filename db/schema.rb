@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_29_214307) do
+ActiveRecord::Schema.define(version: 2022_01_30_221952) do
 
   create_table "maps", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2022_01_29_214307) do
     t.float "latitude"
     t.float "longitude"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "post_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,7 +49,8 @@ ActiveRecord::Schema.define(version: 2022_01_29_214307) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "profile_image_id"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false
+    t.boolean "is_valid", default: true, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
