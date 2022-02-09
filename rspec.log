@@ -1,0 +1,471 @@
+
+PostImageモデルのテスト
+  バリデーションのテスト
+    shop_nameカラム
+[31m      空欄でないこと (FAILED - 1)[0m
+    captionカラム
+[31m      空欄でないこと (FAILED - 2)[0m
+[31m      200文字以下であること: 200文字は〇 (FAILED - 3)[0m
+[31m      200文字以下であること: 201文字は× (FAILED - 4)[0m
+  アソシエーションのテスト
+    Userモデルとの関係
+[32m      N:1となっている[0m
+    Pモデルとの関係
+[31m      1:Nとなっている (FAILED - 5)[0m
+
+Userモデルのテスト
+  バリデーションのテスト
+    nameカラム
+[31m      空欄でないこと (FAILED - 6)[0m
+[31m      2文字以上であること: 1文字は× (FAILED - 7)[0m
+[31m      2文字以上であること: 2文字は〇 (FAILED - 8)[0m
+[31m      20文字以下であること: 20文字は〇 (FAILED - 9)[0m
+[31m      20文字以下であること: 21文字は× (FAILED - 10)[0m
+[31m      一意性があること (FAILED - 11)[0m
+    introductionカラム
+[31m      50文字以下であること: 50文字は〇 (FAILED - 12)[0m
+[31m      50文字以下であること: 51文字は× (FAILED - 13)[0m
+  アソシエーションのテスト
+    PostImageモデルとの関係
+[32m      1:Nとなっている[0m
+
+[STEP1] ユーザログイン前のテスト
+  トップ画面のテスト
+    表示内容の確認
+[31m      URLが正しい (FAILED - 14)[0m
+[31m      Log inリンクが表示される: 青色のボタンの表示が「Log in」である (FAILED - 15)[0m
+[31m      Log inリンクの内容が正しい (FAILED - 16)[0m
+[31m      Sign upリンクが表示される: 緑色のボタンの表示が「Sign up」である (FAILED - 17)[0m
+[31m      Sign upリンクの内容が正しい (FAILED - 18)[0m
+  アバウト画面のテスト
+    表示内容の確認
+[31m      URLが正しい (FAILED - 19)[0m
+
+Failures:
+
+  1) PostImageモデルのテスト バリデーションのテスト shop_nameカラム 空欄でないこと
+     [31mFailure/Error: let(:user) { create(:user) }[0m
+     [31m[0m
+     [31mNoMethodError:[0m
+     [31m  undefined method `create' for #<RSpec::ExampleGroups::PostImage::Nested::ShopName:0x00000000050a3e30>[0m
+     [36m# ./spec/models/post_image_spec.rb:7:in `block (3 levels) in <top (required)>'[0m
+     [36m# ./spec/models/post_image_spec.rb:8:in `block (3 levels) in <top (required)>'[0m
+
+  2) PostImageモデルのテスト バリデーションのテスト captionカラム 空欄でないこと
+     [31mFailure/Error: let(:user) { create(:user) }[0m
+     [31m[0m
+     [31mNoMethodError:[0m
+     [31m  undefined method `create' for #<RSpec::ExampleGroups::PostImage::Nested::Caption:0x0000000005c43ab0>[0m
+     [36m# ./spec/models/post_image_spec.rb:7:in `block (3 levels) in <top (required)>'[0m
+     [36m# ./spec/models/post_image_spec.rb:8:in `block (3 levels) in <top (required)>'[0m
+
+  3) PostImageモデルのテスト バリデーションのテスト captionカラム 200文字以下であること: 200文字は〇
+     [31mFailure/Error: let(:user) { create(:user) }[0m
+     [31m[0m
+     [31mNoMethodError:[0m
+     [31m  undefined method `create' for #<RSpec::ExampleGroups::PostImage::Nested::Caption:0x0000000005c55008>[0m
+     [36m# ./spec/models/post_image_spec.rb:7:in `block (3 levels) in <top (required)>'[0m
+     [36m# ./spec/models/post_image_spec.rb:8:in `block (3 levels) in <top (required)>'[0m
+
+  4) PostImageモデルのテスト バリデーションのテスト captionカラム 200文字以下であること: 201文字は×
+     [31mFailure/Error: let(:user) { create(:user) }[0m
+     [31m[0m
+     [31mNoMethodError:[0m
+     [31m  undefined method `create' for #<RSpec::ExampleGroups::PostImage::Nested::Caption:0x0000000005c721d0>[0m
+     [36m# ./spec/models/post_image_spec.rb:7:in `block (3 levels) in <top (required)>'[0m
+     [36m# ./spec/models/post_image_spec.rb:8:in `block (3 levels) in <top (required)>'[0m
+
+  5) PostImageモデルのテスト アソシエーションのテスト Pモデルとの関係 1:Nとなっている
+     [31mFailure/Error: expect(Recipe.reflect_on_association(:materials).macro).to eq :has_many[0m
+     [31m[0m
+     [31mNameError:[0m
+     [31m  uninitialized constant Recipe[0m
+     [36m# ./spec/models/post_image_spec.rb:42:in `block (4 levels) in <top (required)>'[0m
+
+  6) Userモデルのテスト バリデーションのテスト nameカラム 空欄でないこと
+     [31mFailure/Error: let!(:other_user) { create(:user) }[0m
+     [31m[0m
+     [31mNoMethodError:[0m
+     [31m  undefined method `create' for #<RSpec::ExampleGroups::User::Nested::Name:0x00000000066fd988>[0m
+     [36m# ./spec/models/user_spec.rb:7:in `block (3 levels) in <main>'[0m
+
+  7) Userモデルのテスト バリデーションのテスト nameカラム 2文字以上であること: 1文字は×
+     [31mFailure/Error: let!(:other_user) { create(:user) }[0m
+     [31m[0m
+     [31mNoMethodError:[0m
+     [31m  undefined method `create' for #<RSpec::ExampleGroups::User::Nested::Name:0x000000000670f160>[0m
+     [36m# ./spec/models/user_spec.rb:7:in `block (3 levels) in <main>'[0m
+
+  8) Userモデルのテスト バリデーションのテスト nameカラム 2文字以上であること: 2文字は〇
+     [31mFailure/Error: let!(:other_user) { create(:user) }[0m
+     [31m[0m
+     [31mNoMethodError:[0m
+     [31m  undefined method `create' for #<RSpec::ExampleGroups::User::Nested::Name:0x0000000006731940>[0m
+     [36m# ./spec/models/user_spec.rb:7:in `block (3 levels) in <main>'[0m
+
+  9) Userモデルのテスト バリデーションのテスト nameカラム 20文字以下であること: 20文字は〇
+     [31mFailure/Error: let!(:other_user) { create(:user) }[0m
+     [31m[0m
+     [31mNoMethodError:[0m
+     [31m  undefined method `create' for #<RSpec::ExampleGroups::User::Nested::Name:0x00000000067458f0>[0m
+     [36m# ./spec/models/user_spec.rb:7:in `block (3 levels) in <main>'[0m
+
+  10) Userモデルのテスト バリデーションのテスト nameカラム 20文字以下であること: 21文字は×
+      [31mFailure/Error: let!(:other_user) { create(:user) }[0m
+      [31m[0m
+      [31mNoMethodError:[0m
+      [31m  undefined method `create' for #<RSpec::ExampleGroups::User::Nested::Name:0x0000000006771d38>[0m
+      [36m# ./spec/models/user_spec.rb:7:in `block (3 levels) in <main>'[0m
+
+  11) Userモデルのテスト バリデーションのテスト nameカラム 一意性があること
+      [31mFailure/Error: let!(:other_user) { create(:user) }[0m
+      [31m[0m
+      [31mNoMethodError:[0m
+      [31m  undefined method `create' for #<RSpec::ExampleGroups::User::Nested::Name:0x000000000678a4c8>[0m
+      [36m# ./spec/models/user_spec.rb:7:in `block (3 levels) in <main>'[0m
+
+  12) Userモデルのテスト バリデーションのテスト introductionカラム 50文字以下であること: 50文字は〇
+      [31mFailure/Error: let!(:other_user) { create(:user) }[0m
+      [31m[0m
+      [31mNoMethodError:[0m
+      [31m  undefined method `create' for #<RSpec::ExampleGroups::User::Nested::Introduction:0x00000000067a5bd8>[0m
+      [36m# ./spec/models/user_spec.rb:7:in `block (3 levels) in <main>'[0m
+
+  13) Userモデルのテスト バリデーションのテスト introductionカラム 50文字以下であること: 51文字は×
+      [31mFailure/Error: let!(:other_user) { create(:user) }[0m
+      [31m[0m
+      [31mNoMethodError:[0m
+      [31m  undefined method `create' for #<RSpec::ExampleGroups::User::Nested::Introduction:0x00000000067ce1f0>[0m
+      [36m# ./spec/models/user_spec.rb:7:in `block (3 levels) in <main>'[0m
+
+  14) [STEP1] ユーザログイン前のテスト トップ画面のテスト 表示内容の確認 URLが正しい
+      [31mGot 0 failures and 2 other errors:[0m
+
+      14.1) [31mFailure/Error: visit root_path[0m
+            [31m[0m
+            [31mSelenium::WebDriver::Error::WebDriverError:[0m
+            [31m  unable to connect to /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/chromedriver-helper-2.1.1/bin/chromedriver-helper 127.0.0.1:9515[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:139:in `connect_until_stable'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:57:in `block in start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/socket_lock.rb:41:in `locked'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:54:in `start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service.rb:84:in `launch'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:374:in `service_url'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:311:in `create_bridge'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:74:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver.rb:88:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/selenium/driver.rb:83:in `browser'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:104:in `driver'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:90:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `block in session_pool'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:315:in `current_session'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:46:in `page'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
+            [36m# ./spec/system/01_before_login_spec.rb:6:in `block (3 levels) in <main>'[0m
+
+      14.2) [31mFailure/Error: raise Error::WebDriverError, cannot_connect_error_text[0m
+            [31m[0m
+            [31mSelenium::WebDriver::Error::WebDriverError:[0m
+            [31m  unable to connect to /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/chromedriver-helper-2.1.1/bin/chromedriver-helper 127.0.0.1:9515[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:139:in `connect_until_stable'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:57:in `block in start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/socket_lock.rb:41:in `locked'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:54:in `start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service.rb:84:in `launch'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:374:in `service_url'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:311:in `create_bridge'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:74:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver.rb:88:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/selenium/driver.rb:83:in `browser'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:104:in `driver'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:90:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `block in session_pool'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:315:in `current_session'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:46:in `page'[0m
+
+  15) [STEP1] ユーザログイン前のテスト トップ画面のテスト 表示内容の確認 Log inリンクが表示される: 青色のボタンの表示が「Log in」である
+      [31mGot 0 failures and 2 other errors:[0m
+
+      15.1) [31mFailure/Error: visit root_path[0m
+            [31m[0m
+            [31mSelenium::WebDriver::Error::WebDriverError:[0m
+            [31m  unable to connect to /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/chromedriver-helper-2.1.1/bin/chromedriver-helper 127.0.0.1:9515[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:139:in `connect_until_stable'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:57:in `block in start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/socket_lock.rb:41:in `locked'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:54:in `start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service.rb:84:in `launch'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:374:in `service_url'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:311:in `create_bridge'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:74:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver.rb:88:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/selenium/driver.rb:83:in `browser'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:104:in `driver'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:90:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `block in session_pool'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:315:in `current_session'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:46:in `page'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
+            [36m# ./spec/system/01_before_login_spec.rb:6:in `block (3 levels) in <main>'[0m
+
+      15.2) [31mFailure/Error: raise Error::WebDriverError, cannot_connect_error_text[0m
+            [31m[0m
+            [31mSelenium::WebDriver::Error::WebDriverError:[0m
+            [31m  unable to connect to /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/chromedriver-helper-2.1.1/bin/chromedriver-helper 127.0.0.1:9515[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:139:in `connect_until_stable'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:57:in `block in start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/socket_lock.rb:41:in `locked'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:54:in `start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service.rb:84:in `launch'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:374:in `service_url'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:311:in `create_bridge'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:74:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver.rb:88:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/selenium/driver.rb:83:in `browser'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:104:in `driver'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:90:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `block in session_pool'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:315:in `current_session'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:46:in `page'[0m
+
+  16) [STEP1] ユーザログイン前のテスト トップ画面のテスト 表示内容の確認 Log inリンクの内容が正しい
+      [31mGot 0 failures and 2 other errors:[0m
+
+      16.1) [31mFailure/Error: visit root_path[0m
+            [31m[0m
+            [31mSelenium::WebDriver::Error::WebDriverError:[0m
+            [31m  unable to connect to /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/chromedriver-helper-2.1.1/bin/chromedriver-helper 127.0.0.1:9515[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:139:in `connect_until_stable'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:57:in `block in start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/socket_lock.rb:41:in `locked'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:54:in `start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service.rb:84:in `launch'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:374:in `service_url'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:311:in `create_bridge'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:74:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver.rb:88:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/selenium/driver.rb:83:in `browser'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:104:in `driver'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:90:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `block in session_pool'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:315:in `current_session'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:46:in `page'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
+            [36m# ./spec/system/01_before_login_spec.rb:6:in `block (3 levels) in <main>'[0m
+
+      16.2) [31mFailure/Error: raise Error::WebDriverError, cannot_connect_error_text[0m
+            [31m[0m
+            [31mSelenium::WebDriver::Error::WebDriverError:[0m
+            [31m  unable to connect to /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/chromedriver-helper-2.1.1/bin/chromedriver-helper 127.0.0.1:9515[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:139:in `connect_until_stable'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:57:in `block in start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/socket_lock.rb:41:in `locked'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:54:in `start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service.rb:84:in `launch'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:374:in `service_url'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:311:in `create_bridge'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:74:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver.rb:88:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/selenium/driver.rb:83:in `browser'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:104:in `driver'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:90:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `block in session_pool'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:315:in `current_session'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:46:in `page'[0m
+
+  17) [STEP1] ユーザログイン前のテスト トップ画面のテスト 表示内容の確認 Sign upリンクが表示される: 緑色のボタンの表示が「Sign up」である
+      [31mGot 0 failures and 2 other errors:[0m
+
+      17.1) [31mFailure/Error: visit root_path[0m
+            [31m[0m
+            [31mSelenium::WebDriver::Error::WebDriverError:[0m
+            [31m  unable to connect to /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/chromedriver-helper-2.1.1/bin/chromedriver-helper 127.0.0.1:9515[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:139:in `connect_until_stable'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:57:in `block in start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/socket_lock.rb:41:in `locked'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:54:in `start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service.rb:84:in `launch'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:374:in `service_url'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:311:in `create_bridge'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:74:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver.rb:88:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/selenium/driver.rb:83:in `browser'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:104:in `driver'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:90:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `block in session_pool'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:315:in `current_session'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:46:in `page'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
+            [36m# ./spec/system/01_before_login_spec.rb:6:in `block (3 levels) in <main>'[0m
+
+      17.2) [31mFailure/Error: raise Error::WebDriverError, cannot_connect_error_text[0m
+            [31m[0m
+            [31mSelenium::WebDriver::Error::WebDriverError:[0m
+            [31m  unable to connect to /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/chromedriver-helper-2.1.1/bin/chromedriver-helper 127.0.0.1:9515[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:139:in `connect_until_stable'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:57:in `block in start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/socket_lock.rb:41:in `locked'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:54:in `start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service.rb:84:in `launch'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:374:in `service_url'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:311:in `create_bridge'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:74:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver.rb:88:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/selenium/driver.rb:83:in `browser'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:104:in `driver'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:90:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `block in session_pool'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:315:in `current_session'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:46:in `page'[0m
+
+  18) [STEP1] ユーザログイン前のテスト トップ画面のテスト 表示内容の確認 Sign upリンクの内容が正しい
+      [31mGot 0 failures and 2 other errors:[0m
+
+      18.1) [31mFailure/Error: visit root_path[0m
+            [31m[0m
+            [31mSelenium::WebDriver::Error::WebDriverError:[0m
+            [31m  unable to connect to /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/chromedriver-helper-2.1.1/bin/chromedriver-helper 127.0.0.1:9515[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:139:in `connect_until_stable'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:57:in `block in start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/socket_lock.rb:41:in `locked'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:54:in `start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service.rb:84:in `launch'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:374:in `service_url'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:311:in `create_bridge'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:74:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver.rb:88:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/selenium/driver.rb:83:in `browser'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:104:in `driver'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:90:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `block in session_pool'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:315:in `current_session'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:46:in `page'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
+            [36m# ./spec/system/01_before_login_spec.rb:6:in `block (3 levels) in <main>'[0m
+
+      18.2) [31mFailure/Error: raise Error::WebDriverError, cannot_connect_error_text[0m
+            [31m[0m
+            [31mSelenium::WebDriver::Error::WebDriverError:[0m
+            [31m  unable to connect to /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/chromedriver-helper-2.1.1/bin/chromedriver-helper 127.0.0.1:9515[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:139:in `connect_until_stable'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:57:in `block in start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/socket_lock.rb:41:in `locked'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:54:in `start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service.rb:84:in `launch'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:374:in `service_url'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:311:in `create_bridge'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:74:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver.rb:88:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/selenium/driver.rb:83:in `browser'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:104:in `driver'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:90:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `block in session_pool'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:315:in `current_session'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:46:in `page'[0m
+
+  19) [STEP1] ユーザログイン前のテスト アバウト画面のテスト 表示内容の確認 URLが正しい
+      [31mGot 0 failures and 2 other errors:[0m
+
+      19.1) [31mFailure/Error: visit '/home/about'[0m
+            [31m[0m
+            [31mSelenium::WebDriver::Error::WebDriverError:[0m
+            [31m  unable to connect to /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/chromedriver-helper-2.1.1/bin/chromedriver-helper 127.0.0.1:9515[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:139:in `connect_until_stable'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:57:in `block in start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/socket_lock.rb:41:in `locked'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:54:in `start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service.rb:84:in `launch'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:374:in `service_url'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:311:in `create_bridge'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:74:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver.rb:88:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/selenium/driver.rb:83:in `browser'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:104:in `driver'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:90:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `block in session_pool'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:315:in `current_session'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:46:in `page'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
+            [36m# ./spec/system/01_before_login_spec.rb:34:in `block (3 levels) in <main>'[0m
+
+      19.2) [31mFailure/Error: raise Error::WebDriverError, cannot_connect_error_text[0m
+            [31m[0m
+            [31mSelenium::WebDriver::Error::WebDriverError:[0m
+            [31m  unable to connect to /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/chromedriver-helper-2.1.1/bin/chromedriver-helper 127.0.0.1:9515[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:139:in `connect_until_stable'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:57:in `block in start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/socket_lock.rb:41:in `locked'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service_manager.rb:54:in `start'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/service.rb:84:in `launch'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:374:in `service_url'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:311:in `create_bridge'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:74:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver/common/driver.rb:47:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/selenium-webdriver-4.1.0/lib/selenium/webdriver.rb:88:in `for'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/selenium/driver.rb:83:in `browser'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:104:in `driver'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:90:in `initialize'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `new'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:419:in `block in session_pool'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara.rb:315:in `current_session'[0m
+            [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:46:in `page'[0m
+
+Finished in 4 minutes 1.1 seconds (files took 4.63 seconds to load)
+[31m21 examples, 19 failures[0m
+
+Failed examples:
+
+[31mrspec ./spec/models/post_image_spec.rb:11[0m [36m# PostImageモデルのテスト バリデーションのテスト shop_nameカラム 空欄でないこと[0m
+[31mrspec ./spec/models/post_image_spec.rb:18[0m [36m# PostImageモデルのテスト バリデーションのテスト captionカラム 空欄でないこと[0m
+[31mrspec ./spec/models/post_image_spec.rb:22[0m [36m# PostImageモデルのテスト バリデーションのテスト captionカラム 200文字以下であること: 200文字は〇[0m
+[31mrspec ./spec/models/post_image_spec.rb:26[0m [36m# PostImageモデルのテスト バリデーションのテスト captionカラム 200文字以下であること: 201文字は×[0m
+[31mrspec ./spec/models/post_image_spec.rb:41[0m [36m# PostImageモデルのテスト アソシエーションのテスト Pモデルとの関係 1:Nとなっている[0m
+[31mrspec ./spec/models/user_spec.rb:11[0m [36m# Userモデルのテスト バリデーションのテスト nameカラム 空欄でないこと[0m
+[31mrspec ./spec/models/user_spec.rb:15[0m [36m# Userモデルのテスト バリデーションのテスト nameカラム 2文字以上であること: 1文字は×[0m
+[31mrspec ./spec/models/user_spec.rb:19[0m [36m# Userモデルのテスト バリデーションのテスト nameカラム 2文字以上であること: 2文字は〇[0m
+[31mrspec ./spec/models/user_spec.rb:23[0m [36m# Userモデルのテスト バリデーションのテスト nameカラム 20文字以下であること: 20文字は〇[0m
+[31mrspec ./spec/models/user_spec.rb:27[0m [36m# Userモデルのテスト バリデーションのテスト nameカラム 20文字以下であること: 21文字は×[0m
+[31mrspec ./spec/models/user_spec.rb:31[0m [36m# Userモデルのテスト バリデーションのテスト nameカラム 一意性があること[0m
+[31mrspec ./spec/models/user_spec.rb:38[0m [36m# Userモデルのテスト バリデーションのテスト introductionカラム 50文字以下であること: 50文字は〇[0m
+[31mrspec ./spec/models/user_spec.rb:42[0m [36m# Userモデルのテスト バリデーションのテスト introductionカラム 50文字以下であること: 51文字は×[0m
+[31mrspec ./spec/system/01_before_login_spec.rb:10[0m [36m# [STEP1] ユーザログイン前のテスト トップ画面のテスト 表示内容の確認 URLが正しい[0m
+[31mrspec ./spec/system/01_before_login_spec.rb:13[0m [36m# [STEP1] ユーザログイン前のテスト トップ画面のテスト 表示内容の確認 Log inリンクが表示される: 青色のボタンの表示が「Log in」である[0m
+[31mrspec ./spec/system/01_before_login_spec.rb:17[0m [36m# [STEP1] ユーザログイン前のテスト トップ画面のテスト 表示内容の確認 Log inリンクの内容が正しい[0m
+[31mrspec ./spec/system/01_before_login_spec.rb:21[0m [36m# [STEP1] ユーザログイン前のテスト トップ画面のテスト 表示内容の確認 Sign upリンクが表示される: 緑色のボタンの表示が「Sign up」である[0m
+[31mrspec ./spec/system/01_before_login_spec.rb:25[0m [36m# [STEP1] ユーザログイン前のテスト トップ画面のテスト 表示内容の確認 Sign upリンクの内容が正しい[0m
+[31mrspec ./spec/system/01_before_login_spec.rb:38[0m [36m# [STEP1] ユーザログイン前のテスト アバウト画面のテスト 表示内容の確認 URLが正しい[0m
+
